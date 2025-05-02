@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>UserManagement</class>
+ <widget class="QWidget" name="UserManagement">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>650</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>مدیریت کاربران</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::RightToLeft</enum>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+  font-family: 'Tahoma', 'Arial';
+  font-size: 11pt;
+}
+QPushButton {
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: bold;
+  min-height: 35px;
+}
+QPushButton#addUserButton {
+  background-color: #27ae60;
+  color: white;
+}
+QPushButton#addUserButton:hover {
+  background-color: #2ecc71;
+}
+QPushButton#editUserButton {
+  background-color: #3498db;
+  color: white;
+}
+QPushButton#editUserButton:hover {
+  background-color: #2980b9;
+}
+QPushButton#deleteUserButton {
+  background-color: #e74c3c;
+  color: white;
+}
+QPushButton#deleteUserButton:hover {
+  background-color: #c0392b;
+}
+QPushButton#resetPasswordButton {
+  background-color: #f39c12;
+  color: white;
+}
+QPushButton#resetPasswordButton:hover {
+  background-color: #d35400;
+}
+QLineEdit, QComboBox {
+  padding: 8px;
+  border: 1px solid #bdc3c7;
+  border-radius: 8px;
+  background-color: white;
+  min-height: 35px;
+}
+QTableWidget {
+  border: 1px solid #bdc3c7;
+  border-radius: 8px;
+  background-color: white;
+  gridline-color: #ecf0f1;
+}
+QTableWidget::item {
+  padding: 8px;
+}
+QTableWidget::item:selected {
+  background-color: #3498db;
+  color: white;
+}
+QHeaderView::section {
+  background-color: #ecf0f1;
+  padding: 8px;
+  font-weight: bold;
+  border: none;
+  border-right: 1px solid #bdc3c7;
+}
+QGroupBox {
+  border: 1px solid #bdc3c7;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+QGroupBox::title {
+  subcontrol-origin: margin;
+  subcontrol-position: top center;
+  padding: 0 15px;
+}
+QLabel {
+  font-size: 11pt;
+  color: #2c3e50;
+}
+QCheckBox {
+  spacing: 8px;
+}
+QCheckBox::indicator {
+  width: 18px;
+  height: 18px;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>15</number>
+   </property>
+   <property name="leftMargin">
+    <number>20</number>
+   </property>
+   <property name="topMargin">
+    <number>20</number>
+   </property>
+   <property name="rightMargin">
+    <number>20</number>
+   </property>
+   <property name="bottomMargin">
+    <number>20</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="topLayout">
+     <property name="spacing">
+      <number>10</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="searchLabel">
+       <property name="text">
+        <string>جستجو:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="searchLineEdit">
+       <property name="placeholderText">
+        <string>جستجو بر اساس نام، نام کاربری یا ایمیل...</string>
+       </property>
+       <property name="clearButtonEnabled">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="roleFilterLabel">
+       <property name="text">
+        <string>نقش:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="roleFilterComboBox">
+       <property name="minimumSize">
+        <size>
+         <width>150</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <item>
+        <property name="text">
+         <string>همه نقش‌ها</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>مدیر سیستم</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>مدیر</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>کارمند</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>کاربر</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="statusFilterLabel">
+       <property name="text">
+        <string>وضعیت:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="statusFilterComboBox">
+       <property name="minimumSize">
+        <size>
+         <width>150</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <item>
+        <property name="text">
+         <string>همه وضعیت‌ها</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>فعال</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>غیرفعال</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>مسدود شده</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QSplitter" name="splitter">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QTableWidget" name="usersTableWidget">
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <attribute name="horizontalHeaderStretchLastSection">
+       <bool>true</bool>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>شناسه</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>نام کاربری</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>نام و نام خانوادگی</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>ایمیل</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>شماره تلفن</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>نقش</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>وضعیت</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>آخرین ورود</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QWidget" name="userDetailsWidget" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>350</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>400</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>15</number>
+       </property>
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="topMargin">
+        <number>10</number>
+       </property>
+       <property name="rightMargin">
+        <number>10</number>
+       </property>
+       <property name="bottomMargin">
+        <number>10</number>
+       </property>
+       <item>
+        <widget class="QGroupBox" name="userInfoGroupBox">
+         <property name="title">
+          <string>اطلاعات کاربر</string>
+         </property>
+         <layout class="QFormLayout" name="formLayout">
+          <property name="horizontalSpacing">
+           <number>10</number>
+          </property>
+          <property name="verticalSpacing">
+           <number>10</number>
+          </property>
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <property name="topMargin">
+           <number>20</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>10</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QLabel" name="idLabel">
+            <property name="text">
+             <string>شناسه:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="idValueLabel">
+            <property name="text">
+             <string>-</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="usernameLabel">
+            <property name="text">
+             <string>نام کاربری:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="usernameLineEdit">
+            <property name="placeholderText">
+             <string>نام کاربری را وارد کنید</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="firstNameLabel">
+            <property name="text">
+             <string>نام:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="firstNameLineEdit">
+            <property name="placeholderText">
+             <string>نام را وارد کنید</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="lastNameLabel">
+            <property name="text">
+             <string>نام خانوادگی:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLineEdit" name="lastNameLineEdit">
+            <property name="placeholderText">
+             <string>نام خانوادگی را وارد کنید</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="emailLabel">
+            <property name="text">
+             <string>ایمیل:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="emailLineEdit">
+            <property name="placeholderText">
+             <string>ایمیل را وارد کنید</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="phoneLabel">
+            <property name="text">
+             <string>شماره تلفن:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QLineEdit" name="phoneLineEdit">
+            <property name="placeholderText">
+             <string>شماره تلفن را وارد کنید</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="roleLabel">
+            <property name="text">
+             <string>نقش:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QComboBox" name="roleComboBox">
+            <item>
+             <property name="text">
+              <string>مدیر سیستم</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>مدیر</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>کارمند</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>کاربر</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="7" column="0">
+           <widget class="QLabel" name="statusLabel">
+            <property name="text">
+             <string>وضعیت:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="1">
+           <widget class="QComboBox" name="statusComboBox">
+            <item>
+             <property name="text">
+              <string>فعال</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>غیرفعال</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>مسدود شده</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="8" column="0">
+           <widget class="QLabel" name="passwordLabel">
+            <property name="text">
+             <string>رمز عبور:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1">
+           <widget class="QLineEdit" name="passwordLineEdit">
+            <property name="echoMode">
+             <enum>QLineEdit::Password</enum>
+            </property>
+            <property name="placeholderText">
+             <string>رمز عبور جدید</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="0">
+           <widget class="QLabel" name="confirmPasswordLabel">
+            <property name="text">
+             <string>تکرار رمز عبور:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="1">
+           <widget class="QLineEdit" name="confirmPasswordLineEdit">
+            <property name="echoMode">
+             <enum>QLineEdit::Password</enum>
+            </property>
+            <property name="placeholderText">
+             <string>تکرار رمز عبور جدید</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="permissionsGroupBox">
+         <property name="title">
+          <string>مجوزها</string>
+         </property>
+         <layout class="QVBoxLayout" name="permissionsLayout">
+          <property name="spacing">
+           <number>10</number>
+          </property>
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <property name="topMargin">
+           <number>20</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>10</number>
+          </property>
+          <item>
+           <widget class="QCheckBox" name="viewEmployeesCheckBox">
+            <property name="text">
+             <string>مشاهده کارمندان</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="editEmployeesCheckBox">
+            <property name="text">
+             <string>ویرایش کارمندان</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="viewDocumentsCheckBox">
+            <property name="text">
+             <string>مشاهده اسناد</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="editDocumentsCheckBox">
+            <property name="text">
+             <string>ویرایش اسناد</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="viewTasksCheckBox">
+            <property name="text">
+             <string>مشاهده وظایف</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="editTasksCheckBox">
+            <property name="text">
+             <string>ویرایش وظایف</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="viewReportsCheckBox">
+            <property name="text">
+             <string>مشاهده گزارش‌ها</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="adminAccessCheckBox">
+            <property name="text">
+             <string>دسترسی مدیریت سیستم</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="buttonsLayout">
+         <property name="spacing">
+          <number>10</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="saveUserButton">
+           <property name="styleSheet">
+            <string notr="true">background-color: #27ae60;
+color: white;</string>
+           </property>
+           <property name="text">
+            <string>ذخیره تغییرات</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="cancelButton">
+           <property name="styleSheet">
+            <string notr="true">background-color: #7f8c8d;
+color: white;</string>
+           </property>
+           <property name="text">
+            <string>انصراف</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="actionButtonsLayout">
+     <property name="spacing">
+      <number>10</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="addUserButton">
+       <property name="text">
+        <string>افزودن کاربر جدید</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icons/add_user.png</normaloff>icons/add_user.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="editUserButton">
+       <property name="text">
+        <string>ویرایش کاربر</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icons/edit_user.png</normaloff>icons/edit_user.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="deleteUserButton">
+       <property name="text">
+        <string>حذف کاربر</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icons/delete_user.png</normaloff>icons/delete_user.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="resetPasswordButton">
+       <property name="text">
+        <string>بازنشانی رمز عبور</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icons/reset_password.png</normaloff>icons/reset_password.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="exportButton">
+       <property name="styleSheet">
+        <string notr="true">background-color: #3498db;
+color: white;</string>
+       </property>
+       <property name="text">
+        <string>خروجی اکسل</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icons/export_excel.png</normaloff>icons/export_excel.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="printButton">
+       <property name="styleSheet">
+        <string notr="true">background-color: #3498db;
+color: white;</string>
+       </property>
+       <property name="text">
+        <string>چاپ لیست</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icons/print.png</normaloff>icons/print.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui> 

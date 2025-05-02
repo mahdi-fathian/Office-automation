@@ -1,0 +1,37 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource prefix="/">
+        <file>icons/modern/dashboard.png</file>
+        <file>icons/modern/employee.png</file>
+        <file>icons/modern/document.png</file>
+        <file>icons/modern/task.png</file>
+        <file>icons/modern/calendar.png</file>
+        <file>icons/modern/report.png</file>
+        <file>icons/modern/user.png</file>
+        <file>icons/modern/logo.png</file>
+        <file>icons/modern/search.png</file>
+        <file>icons/modern/add.png</file>
+        <file>icons/modern/edit.png</file>
+        <file>icons/modern/delete.png</file>
+        <file>icons/modern/bold.png</file>
+        <file>icons/modern/italic.png</file>
+        <file>icons/modern/underline.png</file>
+        <file>icons/modern/color.png</file>
+        <file>icons/modern/align-left.png</file>
+        <file>icons/modern/align-center.png</file>
+        <file>icons/modern/align-right.png</file>
+        <file>icons/modern/bullet.png</file>
+        <file>icons/modern/numbered.png</file>
+        <file>icons/modern/attach.png</file>
+        <file>icons/modern/phone.png</file>
+        <file>icons/modern/notes.png</file>
+        <file>icons/modern/announcements.png</file>
+        <file>icons/modern/archive.png</file>
+        <file>icons/modern/automation.png</file>
+        <file>icons/modern/tasks.png</file>
+        <file>icons/modern/cartable.png</file>
+        <file>icons/modern/storage.png</file>
+        <file>icons/modern/email.png</file>
+        <file>icons/modern/delegation.png</file>
+    </qresource>
+</RCC> 

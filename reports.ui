@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Reports</class>
+ <widget class="QWidget" name="Reports">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::RightToLeft</enum>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QComboBox, QDateEdit {
+  padding: 8px;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  background-color: white;
+  min-height: 35px;
+}
+QTabWidget::pane {
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+}
+QTabBar::tab {
+  background-color: #ecf0f1;
+  padding: 8px 16px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin-right: 2px;
+}
+QTabBar::tab:selected {
+  background-color: #3498db;
+  color: white;
+}
+QTabBar::tab:!selected {
+  margin-top: 2px;
+}
+QTableWidget {
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  alternate-background-color: #f5f8fa;
+  gridline-color: #e1e4e8;
+}
+QHeaderView::section {
+  background-color: #2c3e50;
+  color: white;
+  padding: 6px;
+  border: none;
+  font-weight: bold;
+}
+QPushButton {
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: bold;
+  min-height: 35px;
+}
+QPushButton#exportButton, QPushButton#printButton {
+  background-color: #3498db;
+  color: white;
+}
+QPushButton#exportButton:hover, QPushButton#printButton:hover {
+  background-color: #2980b9;
+}
+QLabel {
+  font-size: 14px;
+  color: #2c3e50;
+}
+QGroupBox {
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+QGroupBox::title {
+  subcontrol-origin: margin;
+  subcontrol-position: top center;
+  padding: 0 8px;
+  color: #2c3e50;
+}
+QSplitter::handle {
+  background-color: #e1e4e8;
+}
+QSplitter::handle:horizontal {
+  width: 1px;
+}
+QSplitter::handle:vertical {
+  height: 1px;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>15</number>
+   </property>
+   <property name="leftMargin">
+    <number>20</number>
+   </property>
+   <property name="topMargin">
+    <number>20</number>
+   </property>
+   <property name="rightMargin">
+    <number>20</number>
+   </property>
+   <property name="bottomMargin">
+    <number>20</number>
+   </property>
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="employeeReportTab">
+      <attribute name="title">
+       <string>گزارش کارمندان</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>15</number>
+       </property>
+       <property name="leftMargin">
+        <number>15</number>
+       </property>
+       <property name="topMargin">
+        <number>15</number>
+       </property>
+       <property name="rightMargin">
+        <number>15</number>
+       </property>
+       <property name="bottomMargin">
+        <number>15</number>
+       </property>
+       <item>
+        <widget class="QGroupBox" name="filterGroupBox">
+         <property name="title">
+          <string>فیلترها</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <property name="spacing">
+           <number>15</number>
+          </property>
+          <property name="leftMargin">
+           <number>15</number>
+          </property>
+          <property name="topMargin">
+           <number>20</number>
+          </property>
+          <property name="rightMargin">
+           <number>15</number>
+          </property>
+          <property name="bottomMargin">
+           <number>15</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="departmentLabel">
+            <property name="text">
+             <string>بخش:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="departmentCombo">
+            <item>
+             <property name="text">
+              <string>همه</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>فناوری اطلاعات</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>منابع انسانی</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>مالی</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>بازاریابی</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="generateButton">
+            <property name="styleSheet">
+             <string notr="true">background-color: #2ecc71;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>نمایش گزارش</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="employeeTable">
+         <property name="alternatingRowColors">
+          <bool>true</bool>
+         </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
+         <property name="sortingEnabled">
+          <bool>true</bool>
+         </property>
+         <attribute name="horizontalHeaderStretchLastSection">
+          <bool>true</bool>
+         </attribute>
+         <column>
+          <property name="text">
+           <string>شناسه</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>نام و نام خانوادگی</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>سمت</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>بخش</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="actionLayout">
+         <property name="spacing">
+          <number>15</number>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="exportButton">
+           <property name="text">
+            <string>خروجی اکسل</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="printButton">
+           <property name="text">
+            <string>چاپ گزارش</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="documentReportTab">
+      <attribute name="title">
+       <string>گزارش اسناد</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="spacing">
+        <number>15</number>
+       </property>
+       <property name="leftMargin">
+        <number>15</number>
+       </property>
+       <property name="topMargin">
+        <number>15</number>
+       </property>
+       <property name="rightMargin">
+        <number>15</number>
+       </property>
+       <property name="bottomMargin">
+        <number>15</number>
+       </property>
+       <item>
+        <widget class="QGroupBox" name="docFilterGroupBox">
+         <property name="title">
+          <string>فیلترها</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <property name="spacing">
+           <number>15</number>
+          </property>
+          <property name="leftMargin">
+           <number>15</number>
+          </property>
+          <property name="topMargin">
+           <number>20</number>
+          </property>
+          <property name="rightMargin">
+           <number>15</number>
+          </property>
+          <property name="bottomMargin">
+           <number>15</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="dateFromLabel">
+            <property name="text">
+             <string>از تاریخ:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDateEdit" name="dateFromEdit">
+            <property name="calendarPopup">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="dateToLabel">
+            <property name="text">
+             <string>تا تاریخ:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDateEdit" name="dateToEdit">
+            <property name="calendarPopup">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="generateDocButton">
+            <property name="styleSheet">
+             <string notr="true">background-color: #2ecc71;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>نمایش گزارش</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="documentTable">
+         <property name="alternatingRowColors">
+          <bool>true</bool>
+         </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
+         <property name="sortingEnabled">
+          <bool>true</bool>
+         </property>
+         <attribute name="horizontalHeaderStretchLastSection">
+          <bool>true</bool>
+         </attribute>
+         <column>
+          <property name="text">
+           <string>شناسه</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>عنوان</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>نویسنده</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>تاریخ ایجاد</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="docActionLayout">
+         <property name="spacing">
+          <number>15</number>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="exportDocButton">
+           <property name="text">
+            <string>خروجی اکسل</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="printDocButton">
+           <property name="text">
+            <string>چاپ گزارش</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="taskReportTab">
+      <attribute name="title">
+       <string>گزارش وظایف</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <property name="spacing">
+        <number>15</number>
+       </property>
+       <property name="leftMargin">
+        <number>15</number>
+       </property>
+       <property name="topMargin">
+        <number>15</number>
+       </property>
+       <property name="rightMargin">
+        <number>15</number>
+       </property>
+       <property name="bottomMargin">
+        <number>15</number>
+       </property>
+       <item>
+        <widget class="QGroupBox" name="taskFilterGroupBox">
+         <property name="title">
+          <string>فیلترها</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <property name="spacing">
+           <number>15</number>
+          </property>
+          <property name="leftMargin">
+           <number>15</number>
+          </property>
+          <property name="topMargin">
+           <number>20</number>
+          </property>
+          <property name="rightMargin">
+           <number>15</number>
+          </property>
+          <property name="bottomMargin">
+           <number>15</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="statusLabel">
+            <property name="text">
+             <string>وضعیت:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="statusCombo">
+            <item>
+             <property name="text">
+              <string>همه</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>در انتظار</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>در حال انجام</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>تکمیل شده</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="assigneeLabel">
+            <property name="text">
+             <string>مسئول:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="assigneeCombo">
+            <item>
+             <property name="text">
+              <string>همه</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="generateTaskButton">
+            <property name="styleSheet">
+             <string notr="true">background-color: #2ecc71;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>نمایش گزارش</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="taskTable">
+         <property name="alternatingRowColors">
+          <bool>true</bool>
+         </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
+         <property name="sortingEnabled">
+          <bool>true</bool>
+         </property>
+         <attribute name="horizontalHeaderStretchLastSection">
+          <bool>true</bool>
+         </attribute>
+         <column>
+          <property name="text">
+           <string>شناسه</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>عنوان</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>مسئول</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>مهلت انجام</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>وضعیت</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="taskActionLayout">
+         <property name="spacing">
+          <number>15</number>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer_6">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="exportTaskButton">
+           <property name="text">
+            <string>خروجی اکسل</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="printTaskButton">
+           <property name="text">
+            <string>چاپ گزارش</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui> 

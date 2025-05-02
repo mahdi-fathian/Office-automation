@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TaskManagement</class>
+ <widget class="QWidget" name="TaskManagement">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::RightToLeft</enum>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QLineEdit, QTextEdit, QComboBox, QDateEdit {
+  padding: 8px;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  background-color: white;
+}
+QLineEdit, QComboBox, QDateEdit {
+  min-height: 30px;
+}
+QTextEdit {
+  min-height: 120px;
+}
+QTableWidget {
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  alternate-background-color: #f5f8fa;
+  gridline-color: #e1e4e8;
+}
+QHeaderView::section {
+  background-color: #2c3e50;
+  color: white;
+  padding: 6px;
+  border: none;
+  font-weight: bold;
+}
+QPushButton {
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: bold;
+  min-height: 35px;
+}
+QPushButton#addButton {
+  background-color: #2ecc71;
+  color: white;
+}
+QPushButton#addButton:hover {
+  background-color: #27ae60;
+}
+QPushButton#editButton {
+  background-color: #f1c40f;
+  color: white;
+}
+QPushButton#editButton:hover {
+  background-color: #f39c12;
+}
+QPushButton#deleteButton {
+  background-color: #e74c3c;
+  color: white;
+}
+QPushButton#deleteButton:hover {
+  background-color: #c0392b;
+}
+QPushButton#searchButton, QPushButton#completeButton {
+  background-color: #3498db;
+  color: white;
+}
+QPushButton#searchButton:hover, QPushButton#completeButton:hover {
+  background-color: #2980b9;
+}
+QTabWidget::pane {
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+}
+QTabBar::tab {
+  background-color: #ecf0f1;
+  padding: 8px 16px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin-right: 2px;
+}
+QTabBar::tab:selected {
+  background-color: #3498db;
+  color: white;
+}
+QTabBar::tab:!selected {
+  margin-top: 2px;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>15</number>
+   </property>
+   <property name="leftMargin">
+    <number>20</number>
+   </property>
+   <property name="topMargin">
+    <number>20</number>
+   </property>
+   <property name="rightMargin">
+    <number>20</number>
+   </property>
+   <property name="bottomMargin">
+    <number>20</number>
+   </property>
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tasksTab">
+      <attribute name="title">
+       <string>لیست وظایف</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>15</number>
+       </property>
+       <property name="leftMargin">
+        <number>15</number>
+       </property>
+       <property name="topMargin">
+        <number>15</number>
+       </property>
+       <property name="rightMargin">
+        <number>15</number>
+       </property>
+       <property name="bottomMargin">
+        <number>15</number>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" name="filterLayout">
+         <property name="spacing">
+          <number>15</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="filterLabel">
+           <property name="text">
+            <string>فیلتر براساس وضعیت:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="statusFilterCombo">
+           <property name="minimumSize">
+            <size>
+             <width>150</width>
+             <height>35</height>
+            </size>
+           </property>
+           <item>
+            <property name="text">
+             <string>همه</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>در انتظار</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>در حال انجام</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>تکمیل شده</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="searchEdit">
+           <property name="minimumSize">
+            <size>
+             <width>250</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="placeholderText">
+            <string>جستجوی وظایف...</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="searchButton">
+           <property name="text">
+            <string>جستجو</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/icons/modern/search.png</normaloff>:/icons/modern/search.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="taskTable">
+         <property name="alternatingRowColors">
+          <bool>true</bool>
+         </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
+         <property name="sortingEnabled">
+          <bool>true</bool>
+         </property>
+         <attribute name="horizontalHeaderStretchLastSection">
+          <bool>true</bool>
+         </attribute>
+         <column>
+          <property name="text">
+           <string>شناسه</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>عنوان</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>مسئول</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>مهلت انجام</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>وضعیت</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="buttonLayout">
+         <property name="spacing">
+          <number>15</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="completeButton">
+           <property name="text">
+            <string>تکمیل وظیفه</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="addButton">
+           <property name="text">
+            <string>افزودن وظیفه</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/icons/modern/add.png</normaloff>:/icons/modern/add.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="editButton">
+           <property name="text">
+            <string>ویرایش وظیفه</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/icons/modern/edit.png</normaloff>:/icons/modern/edit.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="deleteButton">
+           <property name="text">
+            <string>حذف وظیفه</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/icons/modern/delete.png</normaloff>:/icons/modern/delete.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="newTaskTab">
+      <attribute name="title">
+       <string>وظیفه جدید</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="spacing">
+        <number>15</number>
+       </property>
+       <property name="leftMargin">
+        <number>15</number>
+       </property>
+       <property name="topMargin">
+        <number>15</number>
+       </property>
+       <property name="rightMargin">
+        <number>15</number>
+       </property>
+       <property name="bottomMargin">
+        <number>15</number>
+       </property>
+       <item>
+        <layout class="QFormLayout" name="formLayout">
+         <property name="horizontalSpacing">
+          <number>15</number>
+         </property>
+         <property name="verticalSpacing">
+          <number>15</number>
+         </property>
+         <item row="0" column="0">
+          <widget class="QLabel" name="titleLabel">
+           <property name="text">
+            <string>عنوان:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="titleEdit">
+           <property name="placeholderText">
+            <string>عنوان وظیفه را وارد کنید</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="descriptionLabel">
+           <property name="text">
+            <string>توضیحات:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QTextEdit" name="descriptionEdit">
+           <property name="placeholderText">
+            <string>توضیحات وظیفه را وارد کنید...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="assigneeLabel">
+           <property name="text">
+            <string>مسئول:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QComboBox" name="assigneeCombo">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>35</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="dueDateLabel">
+           <property name="text">
+            <string>مهلت انجام:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QDateEdit" name="dueDateEdit">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="priorityLabel">
+           <property name="text">
+            <string>اولویت:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QComboBox" name="priorityCombo">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>35</height>
+            </size>
+           </property>
+           <item>
+            <property name="text">
+             <string>کم</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>متوسط</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>زیاد</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>فوری</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="statusLabel">
+           <property name="text">
+            <string>وضعیت:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QComboBox" name="statusCombo">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>35</height>
+            </size>
+           </property>
+           <item>
+            <property name="text">
+             <string>در انتظار</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>در حال انجام</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>تکمیل شده</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="saveLayout">
+         <property name="spacing">
+          <number>15</number>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="saveButton">
+           <property name="minimumSize">
+            <size>
+             <width>150</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: #2ecc71;
+color: white;</string>
+           </property>
+           <property name="text">
+            <string>ذخیره وظیفه</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="cancelButton">
+           <property name="minimumSize">
+            <size>
+             <width>150</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: #e74c3c;
+color: white;</string>
+           </property>
+           <property name="text">
+            <string>انصراف</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui> 

@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Settings</class>
+ <widget class="QWidget" name="Settings">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>تنظیمات سیستم</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::RightToLeft</enum>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QTabWidget::pane {
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+}
+QTabBar::tab {
+  background-color: #ecf0f1;
+  padding: 8px 16px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin-right: 2px;
+}
+QTabBar::tab:selected {
+  background-color: #3498db;
+  color: white;
+}
+QTabBar::tab:!selected {
+  margin-top: 2px;
+}
+QLineEdit, QSpinBox, QDoubleSpinBox, QComboBox {
+  padding: 8px;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  background-color: white;
+  min-height: 35px;
+}
+QPushButton {
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: bold;
+  min-height: 35px;
+}
+QPushButton#saveButton {
+  background-color: #2ecc71;
+  color: white;
+}
+QPushButton#saveButton:hover {
+  background-color: #27ae60;
+}
+QPushButton#resetButton {
+  background-color: #e74c3c;
+  color: white;
+}
+QPushButton#resetButton:hover {
+  background-color: #c0392b;
+}
+QCheckBox {
+  spacing: 8px;
+}
+QCheckBox::indicator {
+  width: 18px;
+  height: 18px;
+}
+QGroupBox {
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+QGroupBox::title {
+  subcontrol-origin: margin;
+  subcontrol-position: top center;
+  padding: 0 8px;
+  color: #2c3e50;
+}
+QLabel {
+  font-size: 14px;
+  color: #2c3e50;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>15</number>
+   </property>
+   <property name="leftMargin">
+    <number>20</number>
+   </property>
+   <property name="topMargin">
+    <number>20</number>
+   </property>
+   <property name="rightMargin">
+    <number>20</number>
+   </property>
+   <property name="bottomMargin">
+    <number>20</number>
+   </property>
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="generalTab">
+      <attribute name="title">
+       <string>تنظیمات عمومی</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>15</number>
+       </property>
+       <property name="leftMargin">
+        <number>15</number>
+       </property>
+       <property name="topMargin">
+        <number>15</number>
+       </property>
+       <property name="rightMargin">
+        <number>15</number>
+       </property>
+       <property name="bottomMargin">
+        <number>15</number>
+       </property>
+       <item>
+        <widget class="QGroupBox" name="userInterfaceGroup">
+         <property name="title">
+          <string>رابط کاربری</string>
+         </property>
+         <layout class="QFormLayout" name="formLayout">
+          <property name="horizontalSpacing">
+           <number>15</number>
+          </property>
+          <property name="verticalSpacing">
+           <number>15</number>
+          </property>
+          <property name="leftMargin">
+           <number>15</number>
+          </property>
+          <property name="topMargin">
+           <number>20</number>
+          </property>
+          <property name="rightMargin">
+           <number>15</number>
+          </property>
+          <property name="bottomMargin">
+           <number>15</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QLabel" name="themeLabel">
+            <property name="text">
+             <string>تم رنگی:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QComboBox" name="themeComboBox">
+            <item>
+             <property name="text">
+              <string>روشن</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>تیره</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>سیستم</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="languageLabel">
+            <property name="text">
+             <string>زبان:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QComboBox" name="languageComboBox">
+            <item>
+             <property name="text">
+              <string>فارسی</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>انگلیسی</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="fontSizeLabel">
+            <property name="text">
+             <string>اندازه فونت:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QSpinBox" name="fontSizeSpinBox">
+            <property name="minimum">
+             <number>8</number>
+            </property>
+            <property name="maximum">
+             <number>24</number>
+            </property>
+            <property name="value">
+             <number>12</number>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0" colspan="2">
+           <widget class="QCheckBox" name="animationsCheckBox">
+            <property name="text">
+             <string>نمایش انیمیشن‌ها</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0" colspan="2">
+           <widget class="QCheckBox" name="notificationsCheckBox">
+            <property name="text">
+             <string>نمایش اعلان‌ها</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="startupGroup">
+         <property name="title">
+          <string>راه‌اندازی</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <property name="spacing">
+           <number>15</number>
+          </property>
+          <property name="leftMargin">
+           <number>15</number>
+          </property>
+          <property name="topMargin">
+           <number>20</number>
+          </property>
+          <property name="rightMargin">
+           <number>15</number>
+          </property>
+          <property name="bottomMargin">
+           <number>15</number>
+          </property>
+          <item>
+           <widget class="QCheckBox" name="startMinimizedCheckBox">
+            <property name="text">
+             <string>شروع به صورت کوچک شده در سینی سیستم</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="autoStartCheckBox">
+            <property name="text">
+             <string>اجرای خودکار در هنگام ورود به سیستم</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="startupViewComboBox">
+            <property name="placeholderText">
+             <string>نمای پیش‌فرض هنگام شروع</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>داشبورد</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>مدیریت کارمندان</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>مدیریت اسناد</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>مدیریت وظایف</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>تقویم</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="databaseTab">
+      <attribute name="title">
+       <string>پایگاه داده</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <property name="spacing">
+        <number>15</number>
+       </property>
+       <property name="leftMargin">
+        <number>15</number>
+       </property>
+       <property name="topMargin">
+        <number>15</number>
+       </property>
+       <property name="rightMargin">
+        <number>15</number>
+       </property>
+       <property name="bottomMargin">
+        <number>15</number>
+       </property>
+       <item>
+        <widget class="QGroupBox" name="connectionGroup">
+         <property name="title">
+          <string>تنظیمات اتصال</string>
+         </property>
+         <layout class="QFormLayout" name="formLayout_2">
+          <property name="horizontalSpacing">
+           <number>15</number>
+          </property>
+          <property name="verticalSpacing">
+           <number>15</number>
+          </property>
+          <property name="leftMargin">
+           <number>15</number>
+          </property>
+          <property name="topMargin">
+           <number>20</number>
+          </property>
+          <property name="rightMargin">
+           <number>15</number>
+          </property>
+          <property name="bottomMargin">
+           <number>15</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QLabel" name="dbTypeLabel">
+            <property name="text">
+             <string>نوع پایگاه داده:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QComboBox" name="dbTypeComboBox">
+            <item>
+             <property name="text">
+              <string>SQLite</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>MySQL</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>PostgreSQL</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="hostLabel">
+            <property name="text">
+             <string>میزبان:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="hostLineEdit">
+            <property name="text">
+             <string>localhost</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="portLabel">
+            <property name="text">
+             <string>پورت:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QSpinBox" name="portSpinBox">
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>65535</number>
+            </property>
+            <property name="value">
+             <number>3306</number>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="databaseNameLabel">
+            <property name="text">
+             <string>نام پایگاه داده:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLineEdit" name="databaseNameLineEdit">
+            <property name="text">
+             <string>office_automation</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="usernameLabel">
+            <property name="text">
+             <string>نام کاربری:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="usernameLineEdit">
+            <property name="text">
+             <string>root</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="passwordLabel">
+            <property name="text">
+             <string>رمز عبور:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QLineEdit" name="passwordLineEdit">
+            <property name="echoMode">
+             <enum>QLineEdit::Password</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QPushButton" name="testConnectionButton">
+            <property name="styleSheet">
+             <string notr="true">background-color: #3498db;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>تست اتصال</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="backupGroup">
+         <property name="title">
+          <string>پشتیبان‌گیری</string>
+         </property>
+         <layout class="QFormLayout" name="formLayout_3">
+          <property name="horizontalSpacing">
+           <number>15</number>
+          </property>
+          <property name="verticalSpacing">
+           <number>15</number>
+          </property>
+          <property name="leftMargin">
+           <number>15</number>
+          </property>
+          <property name="topMargin">
+           <number>20</number>
+          </property>
+          <property name="rightMargin">
+           <number>15</number>
+          </property>
+          <property name="bottomMargin">
+           <number>15</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QCheckBox" name="autoBackupCheckBox">
+            <property name="text">
+             <string>پشتیبان‌گیری خودکار</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="backupDirLabel">
+            <property name="text">
+             <string>مسیر پشتیبان:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <property name="spacing">
+             <number>10</number>
+            </property>
+            <item>
+             <widget class="QLineEdit" name="backupDirLineEdit"/>
+            </item>
+            <item>
+             <widget class="QPushButton" name="browseButton">
+              <property name="text">
+               <string>انتخاب...</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="backupIntervalLabel">
+            <property name="text">
+             <string>فاصله پشتیبان‌گیری (روز):</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QSpinBox" name="backupIntervalSpinBox">
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>90</number>
+            </property>
+            <property name="value">
+             <number>7</number>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QPushButton" name="backupNowButton">
+            <property name="styleSheet">
+             <string notr="true">background-color: #3498db;
+color: white;</string>
+            </property>
+            <property name="text">
+             <string>پشتیبان‌گیری اکنون</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="securityTab">
+      <attribute name="title">
+       <string>امنیت</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <property name="spacing">
+        <number>15</number>
+       </property>
+       <property name="leftMargin">
+        <number>15</number>
+       </property>
+       <property name="topMargin">
+        <number>15</number>
+       </property>
+       <property name="rightMargin">
+        <number>15</number>
+       </property>
+       <property name="bottomMargin">
+        <number>15</number>
+       </property>
+       <item>
+        <widget class="QGroupBox" name="passwordGroup">
+         <property name="title">
+          <string>سیاست رمز عبور</string>
+         </property>
+         <layout class="QFormLayout" name="formLayout_4">
+          <property name="horizontalSpacing">
+           <number>15</number>
+          </property>
+          <property name="verticalSpacing">
+           <number>15</number>
+          </property>
+          <property name="leftMargin">
+           <number>15</number>
+          </property>
+          <property name="topMargin">
+           <number>20</number>
+          </property>
+          <property name="rightMargin">
+           <number>15</number>
+          </property>
+          <property name="bottomMargin">
+           <number>15</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QLabel" name="minLengthLabel">
+            <property name="text">
+             <string>حداقل طول:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QSpinBox" name="minLengthSpinBox">
+            <property name="minimum">
+             <number>4</number>
+            </property>
+            <property name="maximum">
+             <number>20</number>
+            </property>
+            <property name="value">
+             <number>8</number>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0" colspan="2">
+           <widget class="QCheckBox" name="requireSpecialCheckBox">
+            <property name="text">
+             <string>الزام استفاده از کاراکترهای خاص</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0" colspan="2">
+           <widget class="QCheckBox" name="requireNumbersCheckBox">
+            <property name="text">
+             <string>الزام استفاده از اعداد</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0" colspan="2">
+           <widget class="QCheckBox" name="requireUpperLowerCheckBox">
+            <property name="text">
+             <string>الزام استفاده از حروف بزرگ و کوچک</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="expireDaysLabel">
+            <property name="text">
+             <string>انقضای رمز عبور (روز):</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QSpinBox" name="expireDaysSpinBox">
+            <property name="minimum">
+             <number>0</number>
+            </property>
+            <property name="maximum">
+             <number>365</number>
+            </property>
+            <property name="value">
+             <number>90</number>
+            </property>
+            <property name="specialValueText">
+             <string>بدون انقضا</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="sessionGroup">
+         <property name="title">
+          <string>تنظیمات نشست</string>
+         </property>
+         <layout class="QFormLayout" name="formLayout_5">
+          <property name="horizontalSpacing">
+           <number>15</number>
+          </property>
+          <property name="verticalSpacing">
+           <number>15</number>
+          </property>
+          <property name="leftMargin">
+           <number>15</number>
+          </property>
+          <property name="topMargin">
+           <number>20</number>
+          </property>
+          <property name="rightMargin">
+           <number>15</number>
+          </property>
+          <property name="bottomMargin">
+           <number>15</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QLabel" name="timeoutLabel">
+            <property name="text">
+             <string>مهلت زمانی نشست (دقیقه):</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QSpinBox" name="timeoutSpinBox">
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>1440</number>
+            </property>
+            <property name="value">
+             <number>30</number>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0" colspan="2">
+           <widget class="QCheckBox" name="rememberLoginCheckBox">
+            <property name="text">
+             <string>به خاطر سپردن آخرین ورود</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0" colspan="2">
+           <widget class="QCheckBox" name="lockOnIdleCheckBox">
+            <property name="text">
+             <string>قفل خودکار در هنگام بیکاری</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="buttonLayout">
+     <property name="spacing">
+      <number>15</number>
+     </property>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="resetButton">
+       <property name="text">
+        <string>بازنشانی</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="saveButton">
+       <property name="text">
+        <string>ذخیره تنظیمات</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui> 

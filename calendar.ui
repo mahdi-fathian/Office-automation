@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Calendar</class>
+ <widget class="QWidget" name="Calendar">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::RightToLeft</enum>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QCalendarWidget {
+  background-color: white;
+  border: 1px solid #e1e4e8;
+  border-radius: 10px;
+}
+QCalendarWidget QToolButton {
+  color: #2c3e50;
+  padding: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+QCalendarWidget QMenu {
+  background-color: white;
+  padding: 5px;
+  border: 1px solid #e1e4e8;
+  border-radius: 5px;
+}
+QCalendarWidget QAbstractItemView:enabled {
+  color: #2c3e50;
+  selection-background-color: #3498db;
+  selection-color: white;
+}
+QCalendarWidget QToolButton::menu-indicator {
+  image: none;
+}
+QCalendarWidget #qt_calendar_navigationbar {
+  background-color: #ecf0f1;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 2px;
+}
+QCalendarWidget #qt_calendar_prevmonth, QCalendarWidget #qt_calendar_nextmonth {
+  border: none;
+  color: #3498db;
+  qproperty-icon: none;
+  background-color: transparent;
+}
+QCalendarWidget #qt_calendar_prevmonth:hover, QCalendarWidget #qt_calendar_nextmonth:hover {
+  background-color: rgba(52, 152, 219, 0.2);
+  border-radius: 4px;
+}
+QLabel {
+  font-size: 14px;
+  color: #2c3e50;
+}
+QLineEdit, QTextEdit, QTimeEdit, QDateEdit {
+  padding: 8px;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  background-color: white;
+  min-height: 30px;
+}
+QGroupBox {
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+QGroupBox::title {
+  subcontrol-origin: margin;
+  subcontrol-position: top center;
+  padding: 0 8px;
+  color: #2c3e50;
+}
+QPushButton {
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: bold;
+  min-height: 35px;
+}
+QPushButton#addButton, QPushButton#saveButton {
+  background-color: #2ecc71;
+  color: white;
+}
+QPushButton#addButton:hover, QPushButton#saveButton:hover {
+  background-color: #27ae60;
+}
+QPushButton#cancelButton, QPushButton#deleteButton {
+  background-color: #e74c3c;
+  color: white;
+}
+QPushButton#cancelButton:hover, QPushButton#deleteButton:hover {
+  background-color: #c0392b;
+}
+QPushButton#editButton {
+  background-color: #f1c40f;
+  color: white;
+}
+QPushButton#editButton:hover {
+  background-color: #f39c12;
+}
+QListWidget {
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  background-color: white;
+  alternate-background-color: #f5f8fa;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>15</number>
+   </property>
+   <property name="leftMargin">
+    <number>20</number>
+   </property>
+   <property name="topMargin">
+    <number>20</number>
+   </property>
+   <property name="rightMargin">
+    <number>20</number>
+   </property>
+   <property name="bottomMargin">
+    <number>20</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="mainLayout" stretch="2,1">
+     <property name="spacing">
+      <number>20</number>
+     </property>
+     <item>
+      <layout class="QVBoxLayout" name="calendarLayout">
+       <property name="spacing">
+        <number>15</number>
+       </property>
+       <item>
+        <widget class="QCalendarWidget" name="calendarWidget">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>300</height>
+          </size>
+         </property>
+         <property name="firstDayOfWeek">
+          <enum>Qt::Saturday</enum>
+         </property>
+         <property name="gridVisible">
+          <bool>true</bool>
+         </property>
+         <property name="selectionMode">
+          <enum>QCalendarWidget::SingleSelection</enum>
+         </property>
+         <property name="horizontalHeaderFormat">
+          <enum>QCalendarWidget::ShortDayNames</enum>
+         </property>
+         <property name="verticalHeaderFormat">
+          <enum>QCalendarWidget::NoVerticalHeader</enum>
+         </property>
+         <property name="navigationBarVisible">
+          <bool>true</bool>
+         </property>
+         <property name="dateEditEnabled">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="eventDetailsGroupBox">
+         <property name="title">
+          <string>جزئیات رویداد</string>
+         </property>
+         <layout class="QFormLayout" name="formLayout">
+          <property name="horizontalSpacing">
+           <number>10</number>
+          </property>
+          <property name="verticalSpacing">
+           <number>10</number>
+          </property>
+          <property name="leftMargin">
+           <number>15</number>
+          </property>
+          <property name="topMargin">
+           <number>20</number>
+          </property>
+          <property name="rightMargin">
+           <number>15</number>
+          </property>
+          <property name="bottomMargin">
+           <number>15</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QLabel" name="titleLabel">
+            <property name="text">
+             <string>عنوان:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="titleEdit">
+            <property name="placeholderText">
+             <string>عنوان رویداد را وارد کنید</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="startTimeLabel">
+            <property name="text">
+             <string>زمان شروع:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QTimeEdit" name="startTimeEdit">
+            <property name="displayFormat">
+             <string>hh:mm</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="endTimeLabel">
+            <property name="text">
+             <string>زمان پایان:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QTimeEdit" name="endTimeEdit">
+            <property name="displayFormat">
+             <string>hh:mm</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="descriptionLabel">
+            <property name="text">
+             <string>توضیحات:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QTextEdit" name="descriptionEdit">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="placeholderText">
+             <string>توضیحات رویداد را وارد کنید...</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="buttonLayout">
+         <property name="spacing">
+          <number>10</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="addButton">
+           <property name="text">
+            <string>افزودن رویداد</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/icons/modern/add.png</normaloff>:/icons/modern/add.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="editButton">
+           <property name="text">
+            <string>ویرایش رویداد</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/icons/modern/edit.png</normaloff>:/icons/modern/edit.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="deleteButton">
+           <property name="text">
+            <string>حذف رویداد</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/icons/modern/delete.png</normaloff>:/icons/modern/delete.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="eventsLayout">
+       <property name="spacing">
+        <number>10</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="dayEventsLabel">
+         <property name="styleSheet">
+          <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50;</string>
+         </property>
+         <property name="text">
+          <string>رویدادهای روز</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="selectedDateLabel">
+         <property name="styleSheet">
+          <string notr="true">font-size: 14px; color: #3498db;</string>
+         </property>
+         <property name="text">
+          <string>تاریخ انتخاب شده: </string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListWidget" name="eventListWidget">
+         <property name="alternatingRowColors">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui> 
